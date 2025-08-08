@@ -1,110 +1,105 @@
 # ExileOfExiles
 I created a chat bot (my exiler) to help me on my exile journey. GG noob
 
-import pypandoc
+# We'll enhance the README content with some relevant GitHub-friendly emoji/icons for sections.
 
-# The detailed requirement text from the assistant's previous response, translated header into English README format.
-# We'll prepare the content with Markdown styling for GitHub.
-readme_content = """
-# Path of Exile Assistant Chatbot
+readme_with_icons = """
+# 🎯 Path of Exile Assistant Chatbot
 
-## 1. Goals & Scope
-**Goal:** Build a chatbot assistant for Path of Exile that helps players:
-- Ask/answer game knowledge (mechanics, crafting, atlas, builds, league mechanics…)
-- Connect PoE account for personalization (characters, stash, atlas progress…)
-- Provide utilities via PoE APIs (item pricing, trade search, ladder, economy…)
+## 1️⃣ Goals & Scope
+**🎯 Goal:** Build a chatbot assistant for Path of Exile that helps players:
+- 💬 Ask/answer game knowledge (mechanics, crafting, atlas, builds, league mechanics…)
+- 🔗 Connect PoE account for personalization (characters, stash, atlas progress…)
+- 🛠️ Provide utilities via PoE APIs (item pricing, trade search, ladder, economy…)
 
-**Scope v1:**
-- Real-time chat in web app (React) with streaming responses.
-- OAuth PoE login & account linking.
-- Retrieve basic player data: character list, passive tree, stash tab meta, atlas progress, challenges.
-- Quick utilities: item pricing, affix lookup, vendor recipes, currency conversion, build tips & links.
-- Game knowledge via RAG (retrieval-augmented generation) over docs/patch notes/wiki.
-- Store chat history & context.
+**📦 Scope v1:**
+- ⚡ Real-time chat in web app (React) with streaming responses.
+- 🔐 OAuth PoE login & account linking.
+- 📊 Retrieve basic player data: character list, passive tree, stash tab meta, atlas progress, challenges.
+- 🛠️ Quick utilities: item pricing, affix lookup, vendor recipes, currency conversion, build tips & links.
+- 📚 Game knowledge via RAG over docs/patch notes/wiki.
+- 🗂️ Store chat history & context.
 
-**Out of v1 scope:** native mobile app, voice chat, advanced guild tooling, full crafting simulator, PoB full parsing, automated trading.
+**🚫 Out of v1 scope:** native mobile app, voice chat, advanced guild tooling, full crafting simulator, PoB full parsing, automated trading.
 
 ---
 
-## 2. Stakeholders & Personas
-- **New players:** basic guides, recipes, cheap builds.
-- **Mid-core:** quick pricing, atlas/passive optimization, map farming.
-- **Power users/streamers:** deep mechanics, crafting, strategy, character insights.
-- **Dev team:** BE Python, FE React, DevOps, Data/ML (RAG & intent).
+## 2️⃣ Stakeholders & Personas
+- 🆕 **New players:** basic guides, recipes, cheap builds.
+- ⚔️ **Mid-core:** quick pricing, atlas/passive optimization, map farming.
+- 🏆 **Power users/streamers:** deep mechanics, crafting, strategy, character insights.
+- 👩‍💻 **Dev team:** BE Python, FE React, DevOps, Data/ML (RAG & intent).
 
 ---
 
-## 3. Assumptions & Constraints
-- Comply with API Terms & rate limits from PoE and data sources.
-- No gameplay or trade automation that violates ToS.
-- Cloud infra available (Postgres, Redis, Object Storage).
-- **Language:** UI in Vietnamese (v1), English support after (i18n ready).
+## 3️⃣ Assumptions & Constraints
+- 📜 Comply with API Terms & rate limits.
+- 🚫 No gameplay/trade automation violating ToS.
+- ☁️ Cloud infra (Postgres, Redis, Object Storage).
+- 🌐 UI in Vietnamese (v1), English after (i18n ready).
 
 ---
 
-## 4. Architecture Overview
-- **FE (React + Vite):** Chat UI, Auth, utilities pages. WebSocket/SSE for streaming.
-- **API Gateway/BE (Python FastAPI):** Auth, chatbot orchestration, PoE API adapters, pricing logic.
-- **LLM Orchestrator:** Python (LangChain/LlamaIndex) + RAG (vector DB).
-- **Vector DB:** PostgreSQL + pgvector or Qdrant.
-- **Cache:** Redis.
-- **Storage:** S3-compatible.
-- **Observability:** OpenTelemetry + Prometheus/Grafana + Sentry.
-- **Streaming:** WebSocket/SSE.
+## 4️⃣ Architecture Overview
+- 🖥️ **FE:** React + Vite, SSE/WebSocket streaming.
+- 🐍 **BE:** FastAPI, OAuth, LLM orchestration, PoE API adapters.
+- 🧠 **LLM:** LangChain/LlamaIndex + RAG.
+- 💾 **Vector DB:** Postgres + pgvector/Qdrant.
+- ⚡ **Cache:** Redis.
+- ☁️ **Storage:** S3-compatible.
+- 📈 **Observability:** OpenTelemetry, Prometheus/Grafana, Sentry.
 
 ---
 
-## 5. Integrations & Data Sources
-- **PoE OAuth2 login & link account.**
-- Player data (characters, passive tree, stash meta, atlas, challenges).
-- Economy/Market: PoE trade API, PoE.Ninja.
-- Knowledge corpus: PoE Wiki, patch notes, dev manifesto, guides.
+## 5️⃣ Integrations & Data Sources
+- 🔑 PoE OAuth2 login & link.
+- 📂 Player data (characters, stash, atlas, challenges).
+- 📊 Market data from PoE trade API, PoE.Ninja.
+- 📚 Knowledge from PoE Wiki, patch notes, guides.
 
 ---
 
-## 6. Functional Requirements
-### Chat Assistant
-- Multi-turn conversation with reset.
+## 6️⃣ Functional Requirements
+### 💬 Chat Assistant
+- Multi-turn conversation, reset context.
 - Intent classification: Knowledge, Player-linked, Market/Trade, Utility.
-- Tool calls per intent.
-- Cite sources in responses.
-- Guardrails against ToS violations.
+- Tool calls per intent, cite sources.
+- Guardrails for ToS safety.
 
-### Login & Account Link
-- OAuth2 login with token encryption & refresh.
-- Consent screen & revoke option.
-- Account page to manage link status.
+### 🔐 Login & Account Link
+- OAuth2 login, encrypted token, refresh.
+- Consent & revoke options.
+- Account page to manage link.
 
-### Item & Economy Utilities
-- Quick pricing from item text.
-- Affix/mod explanation with tier info.
-- Vendor recipes lookup.
+### 🛠️ Item & Economy Utilities
+- Quick item pricing.
+- Affix/mod explanation.
+- Vendor recipe lookup.
 - Currency conversion.
-- Trade search link generation.
+- Trade search URL generation.
 
-### Personalization
-- Show characters & summary info.
-- Gear/atlas/passive upgrade suggestions.
+### 🎯 Personalization
+- Character list & summary.
+- Gear/atlas/passive suggestions.
 
-### Conversation Management
-- Store chat history with pin option.
-- Export to JSON/Markdown.
-- Feedback on answers.
-
----
-
-## 7. Non-Functional Requirements
-- **Performance:** TTFB < 2s for simple RAG, total < 6s for API calls.
-- **Availability:** 99.5% uptime/month.
-- **Security:** Token encryption, TLS, RBAC, rate limiting.
-- **Scalability:** Autoscaling BE, cache per league.
-- **Observability:** Tracing, error alerts.
-- **Maintainability:** Linting, test coverage, adapter contracts.
+### 📂 Conversation Management
+- Save & pin chats.
+- Export JSON/Markdown.
+- Feedback system.
 
 ---
 
-## 8. API Design (FastAPI example)
-### Auth & User
+## 7️⃣ Non-Functional Requirements
+- ⚡ Performance: TTFB < 2s, full < 6s.
+- 📈 Availability: 99.5% uptime/month.
+- 🔐 Security: encryption, TLS, RBAC, rate limits.
+- 📦 Scalability: autoscale, cache per league.
+- 🛠️ Maintainability: linting, coverage, contracts.
+
+---
+
+## 8️⃣ API Design
+### 🔐 Auth & User
 ```http
 POST /auth/poe/login
 GET  /auth/poe/callback
