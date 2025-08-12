@@ -5,6 +5,7 @@ import MessageInput from "../components/MessageInput";
 import Sidebar from "../layouts/Sidebar";
 import './pages.css'
 import ChatInput from "../components/ChatInput";
+import ChatHistory from "../layouts/ChatHistory";
 
 export default function ChatPage({ username, onLogout }) {
     const [allChats, setAllChats] = useState(() => {
@@ -62,10 +63,13 @@ export default function ChatPage({ username, onLogout }) {
             />
             <div className="page_container">
                 <Navbar username={username} onLogout={onLogout} />
+
                 <div className="chatbox">
                     <MessageList messages={messages} username={username} />
                     <ChatInput onSend={sendMessage} />
                 </div>
+                {/* <ChatHistory chatHistoryList={allChats[username] || []} onSelectChat={selectChat} /> */}
+
             </div>
         </div>
     );

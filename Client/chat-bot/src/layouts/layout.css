@@ -28,19 +28,14 @@
 }
 
 .sidebar button {
-  background-color: #4cafef; /* xanh nhạt */
+  background-color: var(--mainColor); /* xanh nhạt */
   color: white;
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  margin-bottom: 15px;
   transition: background-color 0.2s ease;
-}
-
-.sidebar button:hover {
-  background-color: #399edc;
 }
 
 .sidebar h3 {
@@ -64,6 +59,151 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar li:hover {
+  background-color: #e3f2fd;
+}
+.sidebar {
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.new-chat-btn {
+  background-color: #4cafef;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.new-chat-btn:hover {
+  background-color: #399edc;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar.closed {
+  width: 80px;
+  overflow: visible;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 10px; */
+  margin-bottom: 15px;
+}
+
+.sidebar.closed .sidebar-header {
+  justify-content: center;
+}
+
+.logo {
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+.new-chat-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.new-chat-icon {
+  font-size: 20px;
+}
+
+.new-chat-text {
+  white-space: nowrap;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Khi sidebar mở */
+.new-chat-text.open {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Khi sidebar đóng */
+.new-chat-text.closed {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  left: 40px; /* canh bên phải icon */
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  top: 50%;
+  transition: opacity 0.2s ease;
+  z-index: 999; /* tránh bị đè */
+}
+.sidebar.closed .new-chat-container {
+  overflow: visible;
+}
+.new-chat-container:hover .tooltip {
+  opacity: 1;
+}
+
+.sidebar h3 {
+  padding: 0 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.sidebar li {
+  padding: 8px 12px;
+  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
