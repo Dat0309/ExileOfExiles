@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./layout.css";
+import OptionMain from "../components/pages/Layout/Sidebar/OptionMain";
 
 export default function Sidebar({ chatHistoryList, onSelectChat, onNewChat }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,27 +19,29 @@ export default function Sidebar({ chatHistoryList, onSelectChat, onNewChat }) {
                         className="toggle-btn"
                         onClick={() => setIsOpen(false)}
                     >
-                        ⮜
+                        <i className="fa-regular fa-square-caret-left"></i>
                     </button>
                 )}
             </div>
-
+            <OptionMain />
             {/* Nút tạo đoạn chat mới */}
-            <div
+            {/* <div
                 className="new-chat-container"
                 onClick={onNewChat}
             >
-                <span className="new-chat-icon">+</span>
+                <span className="new-chat-icon">
+                    <i className="fa-regular fa-calendar-plus"></i>
+                </span>
                 <span className={`new-chat-text ${isOpen ? "open" : "closed"}`}>
                     Tạo đoạn chat mới
                 </span>
                 {!isOpen && (
                     <span className="tooltip">Tạo đoạn chat mới</span>
                 )}
-            </div>
+            </div> */}
 
             {/* Danh sách lịch sử chat */}
-            {isOpen && (
+            {/* {isOpen && (
                 <div className="chat_history">
                     <h3>Lịch sử chat</h3>
                     <ul>
@@ -49,7 +52,7 @@ export default function Sidebar({ chatHistoryList, onSelectChat, onNewChat }) {
                         ))}
                     </ul>
                 </div>
-            )}
+            )} */}
         </div>
     );
 }

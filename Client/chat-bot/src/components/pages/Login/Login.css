@@ -1,0 +1,49 @@
+.login-slide {
+  width: 50%;
+  /* height: 100vh; */
+  display: flex;
+  background-color: #f99153;
+  flex-direction: column;
+  justify-content: end;
+  gap: 20px;
+  align-items: center;
+  /* background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white; */
+  padding: 20px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+}
+
+.slide-text {
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide-dots {
+  margin-top: 20px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #010101;
+}

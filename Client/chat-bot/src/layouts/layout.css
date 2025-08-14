@@ -5,37 +5,14 @@
   /* color: white; */
   padding: 10px;
 }
-.login-container button,
-.message-input button,
-.navbar button {
-  padding: 8px 12px;
-  margin-left: 5px;
-  background: var(--mainColor);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
 .sidebar {
   width: 250px;
-  background-color: #f8f9fa; /* nền sáng */
   padding: 15px;
   border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-.sidebar button {
-  background-color: var(--mainColor); /* xanh nhạt */
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
 }
 
 .sidebar h3 {
@@ -75,10 +52,8 @@
   overflow: hidden;
 }
 
-.toggle-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
+.toggle-btn i {
+  font-size: 24px;
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import './common.css'
+import './Chat.css'
+import MessageOption from "./MessageOption";
 export default function MessageList({ messages, username, onQuickCommand }) {
     const endRef = useRef(null);
 
@@ -13,18 +14,18 @@ export default function MessageList({ messages, username, onQuickCommand }) {
                     <h2>Xin chào, {username}!</h2>
                     <p>Bạn có thể bắt đầu trò chuyện hoặc chọn một chức năng bên dưới:</p>
                     <div className="chat-functions">
-                        <button onClick={() => onQuickCommand("Tra cứu wiki/patch/mechanics")}>
-                            📚 Knowledge
-                        </button>
-                        <button onClick={() => onQuickCommand("Nhân vật của tôi có bao nhiêu HP?")}>
-                            🧍 Player-linked
-                        </button>
-                        <button onClick={() => onQuickCommand("Giá item XYZ trên thị trường")}>
-                            💰 Market/Trade
-                        </button>
-                        <button onClick={() => onQuickCommand("Giải thích affix/recipe/conversion")}>
-                            🛠️ Utility
-                        </button>
+                        <MessageOption title="Knowledge" note="Bạn có thể bắt đầu trò chuyện hoặc chọn một chức năng">
+                            <i className="fa-solid fa-book"></i>
+                        </MessageOption>
+                        <MessageOption title="Knowledge" note="Bạn có thể bắt đầu trò chuyện hoặc chọn một chức năng">
+                            <i className="fa-solid fa-book"></i>
+                        </MessageOption>
+                        <MessageOption title="Knowledge" note="Bạn có thể bắt đầu trò chuyện hoặc chọn một chức năng">
+                            <i className="fa-solid fa-book"></i>
+                        </MessageOption>
+                        <MessageOption title="Knowledge" note="Bạn có thể bắt đầu trò chuyện hoặc chọn một chức năng">
+                            <i className="fa-solid fa-book"></i>
+                        </MessageOption>
                     </div>
                 </div>
             </div>

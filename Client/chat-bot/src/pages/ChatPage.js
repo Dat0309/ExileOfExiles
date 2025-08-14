@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import Navbar from "../layouts/Navbar";
-import MessageList from "../components/MessageList";
-import MessageInput from "../components/MessageInput";
+import MessageList from "../components/pages/Chat/MessageList";
+import MessageInput from "../components/pages/Chat/MessageInput";
 import Sidebar from "../layouts/Sidebar";
 import './pages.css'
-import ChatInput from "../components/ChatInput";
+import ChatInput from "../components/pages/Chat/ChatInput";
 import ChatHistory from "../layouts/ChatHistory";
 
 export default function ChatPage({ username, onLogout }) {

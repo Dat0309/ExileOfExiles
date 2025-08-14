@@ -14,7 +14,7 @@ export default function App() {
   };
 
   return (
-    <div className="app">
+    <div>
       {username ? (
         <ChatPage username={username} onLogout={handleLogout} />
       ) : (
